@@ -1,0 +1,16 @@
+New Cars
+[
+  'Maruti Suzuki', 'Tata',         'Mahindra',
+  'Hyundai',       'Toyota',       'Kia',
+  'Skoda',         'MG',           'BMW',
+  'Mercedes-Benz', 'Renault',      'Honda',
+  'Volkswagen',    'Land Rover',   'Nissan',
+  'VinFast',       'Citroen',      'Audi',
+  'Jeep',          'BYD',          'Lexus',
+  'Porsche',       'Tesla',        'Volvo',
+  'Mini',          'Lamborghini',  'Maserati',
+  'Jaguar',        'Rolls-Royce',  'Ferrari',
+  'Force Motors',  'Aston Martin', 'Isuzu',
+  'McLaren',       'Bentley',      'Lotus',
+  'CarWale',       'abSure'
+]

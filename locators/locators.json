@@ -1,0 +1,28 @@
+{
+"homePage": {
+   "newCarsMenu": "//*[contains(text(),'NEW CARS')]",
+      "searchCar": "Search",
+        "carName": "(//input)[2]",
+        
+    "findNewCarsMenu": "Find New Cars"
+  },
+  "CarSearchPage": {
+  
+  
+    "findNewCarsMenu": "Find New Cars"
+  },  
+  "NewCarSearchPage": {
+   "newCars":"//h1",
+   "brands":"(//h2//following::ul[1]/li//div[text()])",
+  "viewmore":"//div[contains(text(),'View More')]",
+    "findNewCarsMenu": "Find New Cars",
+  "brandTemplate": "//h2//following::ul[1]/li//div[text()='{text}']"
+   
+  }
+
+
+
+
+
+
+}
