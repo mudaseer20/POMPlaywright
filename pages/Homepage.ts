@@ -1,6 +1,6 @@
 import {Page} from '@playwright/test';
-import { BasePage } from './BasePage';
-import alllocators from '../locators/locators.json';
+import { BasePage } from './BasePage.js';
+import alllocators from '../locators/locators.json' with { type: 'json' };
 
 
 

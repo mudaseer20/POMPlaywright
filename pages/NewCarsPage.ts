@@ -1,7 +1,8 @@
 import {Page} from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from './BasePage.js';
 
-import alllocators from '../locators/locators.json';
+import alllocators from '../locators/locators.json' with { type: 'json' };
+
 
 export class NewCarsPage extends BasePage {
     locators = alllocators.NewCarSearchPage;
@@ -9,7 +10,7 @@ export class NewCarsPage extends BasePage {
         super(page);
     }
     async getTextValue() {
-       console.log(await this.getText(this.locators.newCars))
+       return await this.getText(this.locators.newCars);
     }
     async clickviewmore(){
         await this.click(this.locators.viewmore);

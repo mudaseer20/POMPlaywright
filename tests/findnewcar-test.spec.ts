@@ -1,32 +1,38 @@
-import {test, expect} from '@playwright/test';
-import {NewCarsPage} from '../pages/NewCarsPage';
-import {Homepage} from '../pages/Homepage';
+import { test, expect } from '../utils/test-base.js'
 
 
 test.describe('Find New Cars', () => {
-    let homepage: Homepage;
-    let newCarsPage: NewCarsPage;
 
-    test.beforeEach(async ({page}) => {
-        homepage = new Homepage(page);
-       newCarsPage = new NewCarsPage(page);
-        await homepage.navigateToHomepage();
-    });
-test('Find New Cars', async ({page}) => {
+
+  test.beforeEach(async ({ pages }) => {
+  
+    await pages.homepage.navigateToHomepage()
+  });
+
+  test('Find New Cars', async ({ pages}) => {
+    await pages.homepage.findNewCarsMenu();
+   await expect(pages.page).toHaveURL(/.*new-cars/);
+    await pages.homepage.searchForCar('Toyota');
+  });
+
+  test.only('navigate to search new cars', async ({pages}) => {
+    await pages.homepage.findNewCarsMenu();
+    await pages.newCarsPage.getTextValue();
+    await pages.newCarsPage.clickviewmore();
+    await pages.newCarsPage.gettextbrands();
+    await pages.newCarsPage.clickcartext('MG');
+    console.log(await pages.newCarsPage.getTextValue());
+  });
+
+  test('navigate to used cars', async ({pages}) => {
     
-    await homepage.findNewCarsMenu();
-    await expect(page).toHaveURL(/.*new-cars/);
-    await homepage.searchForCar('Toyota');
-})
-test('navigate to search new cars', async () => {
-    
-    await homepage.findNewCarsMenu();
-    await newCarsPage.getTextValue();
-    await newCarsPage.clickviewmore();
-    await newCarsPage.gettextbrands();
-    await newCarsPage. clickcartext('MG');
-      await newCarsPage.getTextValue();
+    await pages.usedCarsPage.usedCarsMenu();
+       await expect(pages.page).toHaveURL(/.*used/);
+    await pages.newCarsPage.getTextValue();
+    console.log(await pages.newCarsPage.getTextValue());
+    expect(await pages.newCarsPage.getTextValue()).toBe('Find Second Hand Cars');
+    await pages.newCarsPage.clickviewmore();
+    await pages.usedCarsPage.gettextbrands();
 
-
-})
-})
+  });
+});
