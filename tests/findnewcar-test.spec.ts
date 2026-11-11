@@ -15,7 +15,7 @@ test.describe('Find New Cars', () => {
     await pages.homepage.searchForCar('Toyota');
   });
 
-  test.only('navigate to search new cars', async ({pages}) => {
+  test('navigate to search new cars', async ({pages}) => {
     await pages.homepage.findNewCarsMenu();
     await pages.newCarsPage.getTextValue();
     await pages.newCarsPage.clickviewmore();
