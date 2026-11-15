@@ -35,9 +35,9 @@ async fill(locator: string, value: string ){
     await this.page.locator(locator).fill(value);
 
 }
+
 async getallTextcontent(locator: string){
 const itemsLocator = this.page.locator(locator);
-
 // 2. Turn the locator into an array of individual locators
 const items = await itemsLocator.all();  
    const textArray = [];
@@ -52,8 +52,6 @@ for (const item of items) {
 console.log(textArray);
 }   
 
-
-
 async hover(locator: string){
     await this.page.locator(locator).hover();
 }
@@ -62,7 +60,27 @@ async getText(locator: string){
     return await this.page.locator(locator).textContent();  
 }
 
+async getTextInner(locator: string){
+    return await this.page.locator(locator).innerText() 
+}
 
+async getAttribute(locator: string, attributeName: string): Promise<string | null> {
+  return await this.page.locator(locator).getAttribute(attributeName);
+}
+async check(locator: string){
+    await this.page.locator(locator).check()  
 
+}
+async uncheck(locator: string) {
+  await this.page.locator(locator).uncheck();
+}
+async selectOption(locator: string,option: string | { label?: string; value?: string; index?: number }
+): Promise<string[]> {
+    return await this.page.locator(locator).selectOption(option);
+}
+
+async clickByFilterText(selector: string, text: string): Promise<void> {
+  await this.page.locator(selector).filter({ hasText: text }).click()
+}
 
 }

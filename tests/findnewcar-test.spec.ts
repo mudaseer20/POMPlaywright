@@ -2,10 +2,7 @@ import { test, expect } from '../utils/test-base.js'
 
 
 test.describe('Find New Cars', () => {
-
-
   test.beforeEach(async ({ pages }) => {
-  
     await pages.homepage.navigateToHomepage()
   });
 
@@ -22,6 +19,7 @@ test.describe('Find New Cars', () => {
     await pages.newCarsPage.gettextbrands();
     await pages.newCarsPage.clickcartext('MG');
     console.log(await pages.newCarsPage.getTextValue());
+    
   });
 
   test('navigate to used cars', async ({pages}) => {

@@ -25,7 +25,7 @@ export function readCSVData(filepath: string) {
       // If a row is missing a column value, default it to an empty string instead of crashing
       record[header] = values[index] !== undefined ? values[index] : '';
     });
-
+    console.log(record)
     return record;
   });
 }

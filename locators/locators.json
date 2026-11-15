@@ -3,7 +3,9 @@
    "newCarsMenu": "//*[contains(text(),'NEW CARS')]",
       "searchCar": "Search",
         "carName": "(//input)[2]",
-        
+    "cars": "//div[text()='{text}']",
+    "carValue":"//section//a/div[text()]",
+  "findCar":"h1",    
     "findNewCarsMenu": "Find New Cars"
   },
   "CarSearchPage": {

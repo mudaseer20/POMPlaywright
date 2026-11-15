@@ -1,13 +1,15 @@
 import {Page} from '@playwright/test';
 import { BasePage } from './BasePage.js';
-
+import { ExpectPage } from './ExpectPage.js';
 import alllocators from '../locators/locators.json' with { type: 'json' };
 
 
 export class NewCarsPage extends BasePage {
+      readonly expectpage: ExpectPage;
     locators = alllocators.NewCarSearchPage;
     constructor(page: Page) {
         super(page);
+           this.expectpage = new ExpectPage(page);
     }
     async getTextValue() {
        return await this.getText(this.locators.newCars);
@@ -28,4 +30,6 @@ export class NewCarsPage extends BasePage {
         const brandLocator = this.page.locator(getBrandSelector(brand));
         await brandLocator.click();
     }
+    
+
 }
