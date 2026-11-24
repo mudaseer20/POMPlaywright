@@ -20,8 +20,7 @@ export class PageFixtures {
         this.expectpage=new ExpectPage(page)
     }
 
-    get Basepage():Page{
-
-        return this.page
-    }
+    // get Basepage():Page{
+    //     return this.page
+    // }
 }

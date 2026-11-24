@@ -1,10 +1,8 @@
-import {test as BaseTest,Page,expect} from '@playwright/test';
+import {test as BaseTest,expect} from '@playwright/test';
 import {PageFixtures} from '../fixtures/page-fixtures.js';
 
 type Fixtures={
     pages:PageFixtures;
-
-
 }
 
 export const test=BaseTest.extend<Fixtures>({
