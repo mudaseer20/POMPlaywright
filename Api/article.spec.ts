@@ -8,7 +8,7 @@ const USER_CREDENTIALS = {
   password: process.env.TEST_PASSWORD || 'vaayoo123',
 };
 
-test('Create and delete an article', async ({ request }) => {
+test('Create,update and delete an article', async ({ request }) => {
   const api = new ApiClient(request, BASE_URL);
 
   // 1. Authenticate and store token in the client
@@ -32,10 +32,22 @@ test('Create and delete an article', async ({ request }) => {
     { article: articlePayload },
     201
   );
+    const updatedPayload = {
+    title: `Updated Article ${Date.now()}`,
+    description: 'Updated automated test description',
+    body: 'Updated automated test body content',
+  };
+
+  const updated = await api.put<ArticleResponse>(
+    `/articles/${created.article.slug}`,
+    { article: updatedPayload },
+    200
+  );
 
   expect(created.article.title).toBe(articlePayload.title);
   expect(created.article.tagList).toEqual(articlePayload.tagList);
+  expect(updated.article.title).toBe(updatedPayload.title);
 
   // 3. Delete the created article using its slug
-  await api.delete(`/articles/${created.article.slug}`, 204);
+   await api.delete(`/articles/${updated.article.slug}`, 204);
 });

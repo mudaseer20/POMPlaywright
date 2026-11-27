@@ -36,6 +36,21 @@ export class ApiClient {
     const response = await this.request.delete(`${this.baseUrl}${endpoint}`, {
       headers: this.getAuthHeaders(),
     });
+    console.log(response.status())
+
     expect(response.status()).toBe(expectedStatus);
+  }
+
+   async put<TResponse = any>(
+    endpoint: string,
+    data?: unknown,
+    expectedStatus = 200
+  ): Promise<TResponse> {
+    const response = await this.request.put(`${this.baseUrl}${endpoint}`, {
+      data,
+      headers: this.getAuthHeaders(),
+    });
+    expect(response.status()).toBe(expectedStatus);
+    return (await response.json()) as TResponse;
   }
 }
